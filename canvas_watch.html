@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>表</title>
+  <style type="text/css">
+    body { background: black; text-align: center; }
+    #c1 { background: white; margin-top: 50px; }
+  </style>
+
+  <script type="text/javascript">
+    window.onload = function() {
+      var canvas = document.getElementById('c1');
+      var context = canvas.getContext('2d');
+
+
+
+      function toDraw() {
+
+        var x = 200,
+            y = 200,
+            r = 150;
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        var oDate = new Date(),
+            oHour = oDate.getHours(),
+            oMin = oDate.getMinutes(),
+            oSec = oDate.getSeconds();
+
+        //-90 让其从表的 0 开始计算,其中分针每走两分钟，时针走一度
+        var oHourValue = (-90+oHour*30+oMin/2)*Math.PI/180,
+            oMinValue = (-90+oMin*6)*Math.PI/180,
+            oSecValue = (-90+oSec*6)*Math.PI/180;
+
+
+        // 画大圆，60格
+        context.lineWidth = 1;
+        context.beginPath();
+
+        for(var i=0; i<60; i++) {
+          context.moveTo(x, y);
+          context.arc(x, y, r, i*6*Math.PI/180, (i+1)*6*Math.PI/180, false);
+        }
+
+        context.closePath();
+        context.stroke();
+
+        //在上面盖个圆，半径小点，留下 60 个刻度
+        context.fillStyle = "white";
+        context.beginPath();
+        context.moveTo(x, y);
+        context.arc(x, y, 19*r/20, 0, 360*Math.PI/180, false);
+        context.closePath();
+        context.fill();
+
+        //12格
+        context.lineWidth = 3;
+        context.beginPath();
+        context.moveTo(x, y);
+
+        for (var i=0; i<12; i++) {
+          context.moveTo(x, y);
+          context.arc(x, y, r, i*30*Math.PI/180, (i+1)*30*Math.PI/180, false);
+        }
+
+        context.closePath();
+        context.stroke();
+
+        //在上面盖个圆，半径再小点，留下 12 个刻度
+        context.beginPath();
+        context.moveTo(x, y);
+        context.arc(x, y, 18*r/20, 0, 360*Math.PI/180, false);
+        context.closePath();
+        context.fill();
+
+        //时针
+        context.lineWidth = 5;
+        context.beginPath();
+        context.moveTo(x, y);
+        context.arc(x, y, 10*r/20, oHourValue, oHourValue, false);
+        context.closePath();
+        context.stroke();
+
+        //分针
+        context.lineWidth = 3;
+        context.beginPath();
+        context.moveTo(x, y);
+        context.arc(x, y, 13*r/20, oMinValue, oMinValue, false);
+        context.closePath();
+        context.stroke();
+
+        //秒针
+        context.lineWidth = 2;
+        context.beginPath();
+        context.moveTo(x, y);
+        context.arc(x, y, 17*r/20, oSecValue, oSecValue, false);
+        context.closePath();
+        context.stroke();
+
+      }
+
+      toDraw();
+      setInterval(toDraw ,1000)
+
+
+    }
+  </script>
+</head>
+<body>
+  <canvas id="c1" width="400" height="400"></canvas>
+</body>
+</html>
