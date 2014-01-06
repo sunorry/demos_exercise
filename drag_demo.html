@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>drag</title>
+  <style type="text/css">
+    #div1 { width: 200px; height: 200px; background: red; position: absolute; }
+  </style>
+  <script type="text/javascript">
+    window.onload = function(){
+      var oDiv = document.getElementById('div1');
+      var disX = 0,
+          disY = 0;
+      oDiv.onmousedown = function(e){
+        var e = e || window.event;
+        disX = e.clientX - oDiv.offsetLeft;
+        disY = e.clientY - oDiv.offsetTop;
+
+        //防止 IE9 以下拖拽元素(如文字,div有背景) bug
+        if(oDiv.setCapture){
+          oDiv.setCapture();
+        }
+
+        //用 document 是因为 onmousemove 有反应时间，如果你手速稍快就挂了
+        document.onmousemove = function(e){
+          var e = e || window.event;
+          oDiv.style.left = e.clientX - disX + 'px';
+          oDiv.style.top = e.clientY - disY + 'px';
+        };
+
+        document.onmouseup = function(){
+          document.onmousemove = null;
+          document.onmouseup = null;
+
+          //relase 添加层
+          if(oDiv.releaseCapture) {
+            oDiv.releaseCapture();
+          }
+
+        };
+
+        //防止拖拽图片时默认行为
+        return false;
+
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="div1"></div>
+</body>
+</html>
