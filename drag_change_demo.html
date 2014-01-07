@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>拖拽改变层大小</title>
+  <style type="text/css">
+    #div1 { width: 200px; height: 200px; background: red; position: absolute; }
+    #div2 { width: 20px; height: 20px; background: yellow; position: absolute; bottom: 0; right: 0; }
+  </style>
+  <script type="text/javascript">
+    window.onload = function() {
+      var oDiv1 = document.getElementById('div1');
+      var oDiv2 = document.getElementById('div2');
+
+      var disX = 0,
+          disY = 0,
+          disW = 0,
+          disH = 0;
+
+
+      oDiv2.onmousedown = function(e) {
+        var e = e || window.event;
+        disX = e.clientX;
+        disY = e.clientY;
+        disW = oDiv1.offsetWidth;
+        disH = oDiv1.offsetHeight;
+
+        document.onmousemove = function(e) {
+          var e = e || window.event;
+          var W = e.clientX - disX + disW;
+          var H = e.clientY - disY + disH;
+          if(W < 100){
+            W = 100;
+          }
+          if(H < 100){
+            H = 100;
+          }
+          oDiv1.style.width = W + 'px';
+          oDiv1.style.height = H + 'px';
+        };
+
+        document.onmouseup = function(){
+          document.onmousemove = null;
+          document.onmouseup = null;
+        };
+      }
+    };
+  </script>
+</head>
+<body>
+  <div id="div1">
+    <div id="div2"></div>
+  </div>
+</body>
+</html>
