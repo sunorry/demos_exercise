@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Delegation</title>
+</head>
+<body>
+  <ul id="parentList">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+
+  <script>
+    var oParent = document.getElementById('parentList');
+
+    oParent.onmouseover = function(e) {
+      //事件源兼容
+      var e = e || window.event;
+      var target = e.target || ev.srcElement;
+
+      if(target.nodeName.toUpperCase() == "LI") {
+        target.style.background = "red";
+      }
+
+    }
+
+    oParent.onmouseout = function(e) {
+      //事件源兼容
+      var e = e || window.event;
+      var target = e.target || ev.srcElement;
+
+      if(target.nodeName.toUpperCase() == "LI") {
+        target.style.background = "";
+      }
+    }
+
+  </script>
+</body>
+</html>
