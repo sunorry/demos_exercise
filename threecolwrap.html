@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>three colwrap</title>
+  <style>
+
+    div#main_wrapper {
+      min-width: 600px;
+      max-width: 1100px;
+      /*超过最大宽度时，居中布局*/
+      margin: 0 auto;
+    }
+
+    div#threecolwrap {
+      /*浮动强制它包围浮动的栏*/
+      float: left;
+      width: 100%;
+    }
+
+    div#twocolwrap {
+      /*浮动强制它包围浮动的栏*/
+      float:left;
+      width: 100%;
+      /*把右栏拉到区块外边距腾出的位置上*/
+      margin-right: -210px;
+    }
+
+    nav {
+      float: left;
+      width: 150px;
+    }
+
+    article {
+      width: auto;
+      margin-left: 150px;
+      /*在流动居中的栏右侧腾出空间*/
+      margin-right: 210px;
+    }
+
+    aside {
+      float: left;
+      width: 210px;
+    }
+
+    footer {
+      clear: both;
+      width: 100%;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="main_wrapper">
+    <header>
+      <!-- header -->
+    </header>
+
+    <div id="threecolwrap"> <!-- 三栏外包装（包围全部三栏） -->
+      <div id="twocolwrap"> <!-- 两栏外包装（包围左栏和中栏） -->
+        <!-- 左栏 -->
+        <nav>a</nav>
+        <!-- 中栏 -->
+        <article>简单说明他的原理：三栏中的右栏是 210px 。为了给右栏腾出空间，中栏 article 元素有一个 210px 的右外边距。当然，光有这个外边距只能把右栏再向右推 210px ，这时，包含左栏和中栏的两栏外包装上 210px 的负右外边距，会把右栏拉回 article 元素右外边距（在两栏外包装内部右侧）创造的空间内。中栏 atricle 元素的宽度是 auto ，因此它仍然会力求占据浮动左栏剩余的所有空间。一方面它自己的右外边距在两栏外包装内为右栏腾出了空间；另一方面两栏外包装的负右边距又把右栏拉到了该空间。总之，这是一个很巧妙的设计。</article>
+      </div> <!-- 结束两栏外包装 (twocolwrap) -->
+
+      <!-- 右栏 -->
+      <aside>c</aside>
+
+    </div> <!-- 结束三栏外包装 (threecolwrap) -->
+
+    <footer></footer>
+
+  </div>
+</body>
+</html>
