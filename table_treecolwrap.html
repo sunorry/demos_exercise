@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    nav {
+      display: table-cell;
+      width: 150px;
+      padding: 10px;
+      background: #dcd9c0;
+    }
+    article {
+      display: table-cell;
+      padding: 10px 20px;
+      background: #ffed53;
+    }
+    aside {
+      display: table-cell;
+      width: 210px;
+      padding: 10px;
+      background: #3f7ccf;
+    }
+  </style>
+</head>
+<body>
+  <nav>nav</nav>
+  <article>
+    <p>CSS 可以把一个 HTML 元素的 display 属性设定为 table，table-row，table-cell。通过这种方法模拟相应 HTML 元素的行为。通过 CSS 把布局中的栏设定为 table-cell 有三个好处。</p>
+    <ul>
+      <li>单元格（table-cell）不需要浮动就可以并排显示，而且直接为他们应用内边距也不会破坏布局。</li>
+      <li>默认情况下，一行中的所有单元格高度相同，因为不需用人造的等高效果了。</li>
+      <li>任何没有明确设定宽度的栏都是流动的。</li>
+    </ul>
+    <p>但是，CSS3 表格行为在 IE7 及以下版本并没有得到支持，而且没有稳妥的补救措施。但这是一个既简单又可靠，而且还很彻底的解决方案。如果愿意摒弃 IE7,<strong>我绝对推荐你采用这个方案，以前的 负 margin 就当没说过。</strong></p>
+    <p>关键是，你甚至都不需要用 div 外包装来扮演 table 和 tr 元素，仅仅是把三栏的 display 属性设定为 table-cell 就可以了。浏览器的排版引擎在碰到没有表行（tr）的一组单元格时，会自动为他们添加表行，而在表行没有被 table 元素包围时，会自动为表行添加 table 。因此你不用多写任何标记，只要把每一栏的 display 属性设定为 table-cell ，剩下的事儿就可以全部交给浏览器负责了。</p>
+  </article>
+  <aside>aside</aside>
+</body>
+</html>
