@@ -19,7 +19,7 @@
     oParent.onmouseover = function(e) {
       //事件源兼容
       var e = e || window.event;
-      var target = e.target || ev.srcElement;
+      var target = e.target || e.srcElement;
 
       if(target.nodeName.toUpperCase() == "LI") {
         target.style.background = "red";
