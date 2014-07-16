@@ -67,10 +67,57 @@ body {
 }
 
 .hotelPick {
-  height: 37px;
+  height: 35px;
 }
 
 .hotelPick .hotelName {
-  width: 80%;
+  width: 78%;
+  height: 30px;
+  float: left;
   background: white;
+  margin-top: 2px;
+  margin-left: 5px;
+}
+
+.hotelName .searchIcon {
+  float: left;
+  width: 17px;
+  height: 17px;
+  margin: 8px 0 0 16px;
+  background: url(../imgs/search.png) no-repeat -15px 0;
+}
+
+.hotelName .searchInput {
+  float: left;
+  width: 70%;
+}
+.searchInput input {
+  height: 30px;
+  width: 100%;
+  font-size: 16px;
+  border: none;
+  padding-left: 5px;
+}
+.datePick {
+  float: left;
+  background: white;
+  width: 17%;
+  height: 30px;
+  margin-left: 5px;
+  margin-top: 2px;
+}
+.datePick .date {
+  float: left;
+}
+.datePick p {
+  line-height: 15px;
+
+}
+.datePick .down {
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #25a4bb;
+  position: relative;
+  top: 20px;
+  left: 2px;
 }

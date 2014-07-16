@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>string</title>
+  <style>
+    div {
+      border: 1px dashed red;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <dl>
+      <dt><code>RegExp.test</code></dt>
+      <dd>test() 方法，检测一个字符串是否匹配某个模式。返回值： true or false.</dd>
+    </dl>
+  </div>
+
+  <script>
+    var str = 123214214;
+    var reg = /^\d+$/;
+    alert(reg.test(str));
+  </script>
+</body>
+</html>
