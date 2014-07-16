@@ -1,0 +1,144 @@
+/*
+KISSY CSS Reset
+理念：清除和重置是紧密不可分的
+特色：1.适应中文 2.基于最新主流浏览器
+维护：玉伯(lifesinger@gmail.com), 正淳(ragecarrier@gmail.com)
+*/
+
+/* 清除内外边距 */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
+th, td { /* table elements 表格元素 */
+    margin: 0;
+    padding: 0;
+}
+
+/* 设置默认字体 */
+body,
+button, input, select, textarea { /* for ie */
+    /*font: 12px/1 Tahoma, Helvetica, Arial, "宋体", sans-serif;*/
+    font: 12px/1 Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif; /* 用 ascii 字符表示，使得在任何编码下都无问题 */
+}
+
+h1 { font-size: 18px; /* 18px / 12px = 1.5 */ }
+h2 { font-size: 16px; }
+h3 { font-size: 14px; }
+h4, h5, h6 { font-size: 100%; }
+
+address, cite, dfn, em, var { font-style: normal; } /* 将斜体扶正 */
+code, kbd, pre, samp, tt { font-family: "Courier New", Courier, monospace; } /* 统一等宽字体 */
+small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正常化 */
+
+/* 重置列表元素 */
+ul, ol { list-style: none; }
+
+/* 重置文本格式元素 */
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+abbr[title], acronym[title] { /* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+q:before, q:after { content: ''; }
+
+/* 重置表单元素 */
+legend { color: #000; } /* for ie6 */
+fieldset, img { border: none; } /* img 搭车：让链接里的 img 无边框 */
+/* 注：optgroup 无法扶正 */
+button, input, select, textarea {
+    font-size: 100%; /* 使得表单元素在 ie 下能继承字体大小 */
+}
+
+/* 重置表格元素 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* 重置 hr */
+hr {
+    border: none;
+    height: 1px;
+}
+
+/* 让非ie浏览器默认也显示垂直滚动条，防止因滚动条引起的闪烁 */
+html { overflow-y: scroll; }
+
+textarea {
+    resize: none;
+}
+input[type="file"] { 
+    border: 1px solid #999;
+}
+/*total*/
+.red {
+    color: #F00;
+}
+.red-gred {
+    color: #FFF;
+    background-color: #D55B58;
+    background-image: -moz-linear-gradient(top,#D55B58,#C70400);
+    background-image: -ms-linear-gradient(top,#D55B58,#C70400);
+    background-image: -webkit-linear-gradient(top,#D55B58,#C70400);
+    background-image: -o-linear-gradient(top,#D55B58,#055db5);
+    background-image: linear-gradient(top,#D55B58,#C70400);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D55B58', endColorstr='#C70400', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.b-lightgray {
+    background-color: #EEE;
+}
+.gray-gred {
+    color: #333;
+    background-color: #D2D2D2;
+    background-image: -moz-linear-gradient(top,#D2D2D2,#F6F6F6);
+    background-image: -ms-linear-gradient(top,#D2D2D2,#F6F6F6);
+    background-image: -webkit-linear-gradient(top,#D2D2D2,#F6F6F6);
+    background-image: -o-linear-gradient(top,#D2D2D2,#F6F6F6);
+    background-image: linear-gradient(top,#D2D2D2,#F6F6F6);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D2D2D2', endColorstr='#F6F6F6', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.silver-gray-gred {
+    background-color: #EAEBEB;
+    background-image: -moz-linear-gradient(top,#F9F8F9,#EAEBEB);
+    background-image: -ms-linear-gradient(top,#F9F8F9,#EAEBEB);
+    background-image: -webkit-linear-gradient(top,#F9F8F9,#EAEBEB);
+    background-image: -o-linear-gradient(top,#F9F8F9,#EAEBEB);
+    background-image: linear-gradient(top,#F9F8F9,#EAEBEB);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F9F8F9', endColorstr='#EAEBEB', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.up-hide {
+    background-image: url("../pic/2_uparrow.png");
+    width: 16PX; height: 16PX;
+    border: 0;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.button-with-icon {
+    vertical-align: middle;
+} .button-with-icon>img {
+    vertical-align: middle;
+    margin-right: 3px;
+} .button-with-icon>span {
+    vertical-align: middle;
+}
+a.button-with-icon {
+    display: inline-block;
+    width: 60px;
+    color: #111;
+    cursor: pointer;
+} a.button-with-icon:hover {
+    text-decoration: none;
+    color: #E11;
+}
+a.ico-btn {
+    width: 24px;
+    cursor: pointer;
+}

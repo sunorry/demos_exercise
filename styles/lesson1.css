@@ -1,0 +1,76 @@
+body {
+  background-color: #f7f7f7;
+}
+
+
+/*border-bottom: 1px solid #1b7a8b;*/
+
+.g-wapper {
+  width: 100%;
+}
+
+.g-wapper .m-search {
+  background-color: #25a4bb;
+}
+
+.m-search .cityPick {
+  height: 42px;
+  border-bottom: 1px solid #1b7a8b;
+}
+.m-search a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.cityPick div {
+  float: left;
+}
+
+.m-search .back {
+  width: 25%;
+}
+
+.m-search .back img {
+  margin: 10px 16px 0;
+  width: 16px;
+  height: 20px;
+}
+
+.cityPick .city {
+  width: 50%;
+  margin-top: 14px;
+  text-align: center;
+}
+
+.cityName {
+  font-size: 15px;
+  color: white;
+}
+
+.city img {
+  width: 16px;
+}
+
+.map {
+  width: 25%;
+  text-align: right;
+}
+.map a {
+  width: 27px;
+  margin: 2px 12px 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: white;
+}
+.map img {
+  width: 25px;
+}
+
+.hotelPick {
+  height: 37px;
+}
+
+.hotelPick .hotelName {
+  width: 80%;
+  background: white;
+}
