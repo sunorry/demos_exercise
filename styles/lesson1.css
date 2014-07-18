@@ -21,10 +21,19 @@ body {
 .m-search .back {
   width: 25%;
 }
-.m-search .back img {
-  margin: 10px 16px 0;
-  width: 16px;
-  height: 20px;
+
+.back a {
+  height: 42px;
+}
+.back span {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  line-height: 42px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent red red;
+  -webkit-transform: rotate(45deg);
 }
 .city-pick .city {
   width: 50%;
