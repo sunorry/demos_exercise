@@ -1,19 +1,13 @@
 body {
   background-color: #f7f7f7;
 }
-
-
-/*border-bottom: 1px solid #1b7a8b;*/
-
 .g-wapper {
   width: 100%;
 }
-
 .g-wapper .m-search {
   background-color: #25a4bb;
 }
-
-.m-search .cityPick {
+.m-search .city-pick {
   height: 42px;
   border-bottom: 1px solid #1b7a8b;
 }
@@ -21,36 +15,29 @@ body {
   display: inline-block;
   text-decoration: none;
 }
-
-.cityPick div {
+.city-pick div {
   float: left;
 }
-
 .m-search .back {
   width: 25%;
 }
-
 .m-search .back img {
   margin: 10px 16px 0;
   width: 16px;
   height: 20px;
 }
-
-.cityPick .city {
+.city-pick .city {
   width: 50%;
   margin-top: 14px;
   text-align: center;
 }
-
-.cityName {
+.city-name {
   font-size: 15px;
   color: white;
 }
-
 .city img {
   width: 16px;
 }
-
 .map {
   width: 25%;
   text-align: right;
@@ -65,59 +52,171 @@ body {
 .map img {
   width: 25px;
 }
-
-.hotelPick {
+.hotel-pick {
   height: 35px;
 }
-
-.hotelPick .hotelName {
-  width: 78%;
+.hotel-pick .hotel-name {
+  width: 75%;
   height: 30px;
   float: left;
   background: white;
   margin-top: 2px;
   margin-left: 5px;
 }
-
-.hotelName .searchIcon {
+.hotel-name .search-icon {
   float: left;
   width: 17px;
   height: 17px;
   margin: 8px 0 0 16px;
   background: url(../imgs/search.png) no-repeat -15px 0;
 }
-
-.hotelName .searchInput {
+.hotel-name .search-input {
   float: left;
   width: 70%;
 }
-.searchInput input {
+.search-input input {
   height: 30px;
   width: 100%;
   font-size: 16px;
   border: none;
   padding-left: 5px;
 }
-.datePick {
+.date-pick {
   float: left;
   background: white;
-  width: 17%;
+  width: 20%;
   height: 30px;
   margin-left: 5px;
   margin-top: 2px;
 }
-.datePick .date {
+.date-pick .date {
   float: left;
+  color: #25a4bb;
+  margin-left: 5px;
 }
-.datePick p {
+.date-pick p {
   line-height: 15px;
-
 }
-.datePick .down {
+.date-pick .down {
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 5px solid #25a4bb;
   position: relative;
   top: 20px;
   left: 2px;
+}
+.m-content {
+  width: 100%;
+}
+.m-content .c-sort {
+  height: 37px;
+  border-bottom: 1px solid #CCC;
+}
+.c-sort ul {
+  height: 100%;
+  width: 93%;
+  margin-left: 20px;
+  text-align: left;
+}
+.c-sort ul li {
+  display: inline-block;
+  width: 32%;
+  line-height: 37px;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+.c-sort .order {
+  background: url(../imgs/sort.png) no-repeat left;
+  background-size: 20px;
+}
+.c-sort .level {
+  background: url(../imgs/money.png) no-repeat left;
+  background-size: 20px;
+}
+.c-sort .filter {
+  background: url(../imgs/select.png) no-repeat left;
+  background-size: 20px;
+}
+.c-sort .order:after {
+  content: '|';
+  margin-left: 10px;
+}
+.c-sort .level:after {
+  content: '|';
+  margin-left: 10px;
+}
+.content-lists {
+  width: 100%;
+}
+.list li {
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  padding: 5px 0;
+}
+.list li:nth-child(2n) {
+  background: white;
+}
+.list img, .list .lookfor {
+  position: absolute;
+}
+.list img {
+  width: 20%;
+  height: 64px;
+  top: 50%;
+  margin-top: -32px;
+  padding: 0 6px;
+}
+.details {
+  display: inline-block;
+  width: 70%;
+  left: 24%;
+  position: relative;
+}
+.details .stars {
+  line-height: 18px;
+}
+.details .location, .stars {
+  color: #8c8ca2;
+  font-size: 13px;
+}
+.details .rmb {
+  font-size: 12px;
+}
+.details .money-start {
+  color: #8c8ca2;
+  font-size: 12px;
+}
+.details .price {
+  position: absolute;
+  color: #ff6600;
+  font-size: 20px;
+  right: 8px;
+  top: 50%;
+  margin-top: -10px;
+}
+.details .group {
+  width: 1em;
+  line-height: 1.2;
+  margin: 2px 0;
+  padding: 0 2px;
+  font-size: 14px;
+  background-color: #25a4bb;
+  color: white;
+}
+.lookfor {
+  width: 5%;
+  right: 1%;
+  top: 50%;
+  font-size: 19px;
+  font-weight: 700;
+  color: #8c8c8c;
+  margin-top: -8px;
+}
+.details-name {
+  font-size: 18px;
+  line-height: 22px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }

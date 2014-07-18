@@ -1,70 +1,194 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>hotel</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <link href="./styles/reset.css" rel="stylesheet">
-    <link href="./styles/lesson1.css" rel="stylesheet">
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>hotel</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link href="./styles/reset.css" rel="stylesheet">
+  <link href="./styles/lesson1.css" rel="stylesheet">
+</head>
 
-  <body>
-    <div class="g-wapper">
-      <!-- 顶部搜索框 begin -->
-      <div class="m-search">
+<body>
+  <div class="g-wapper">
+    <!-- 顶部搜索框 begin -->
+    <div class="m-search">
 
-        <div class="cityPick">
-          <div class="back">
-            <a href="">
+      <div class="city-pick">
+        <div class="back">
+          <a href="">
             <img src="./imgs/back.png" alt="back">
-            </a>
-          </div>
-
-          <div class="city">
-            <span class="cityName">北京</span>
-            <img src="./imgs/details-white.png" alt="details">
-          </div>
-
-          <div class="map">
-            <a href="javascript:;">
-              <img src="./imgs/map.png" alt="map">
-              <span>地图</span>
-            </a>
-          </div>
+          </a>
         </div>
 
-        <div class="hotelPick">
-
-          <form action="####">
-            <div class="hotelName">
-              <div class="searchIcon"></div>
-              <div class="searchInput"><input type="text"></div>
-            </div>
-
-            <div class="datePick">
-              <div class="date">
-                <p>住 <span>6-18</span></p>
-                <p>住 <span>6-18</span></p>
-              </div>
-              <span class="down"></span>
-            </div>
-
-          </form>
+        <div class="city">
+          <span class="city-name">北京</span>
+          <img src="./imgs/details-white.png" alt="details">
         </div>
 
+        <div class="map">
+          <a href="javascript:;">
+            <img src="./imgs/map.png" alt="map">
+            <span>地图</span>
+          </a>
+        </div>
       </div>
-      <!-- 搜索框 end -->
 
-      <!-- 排序 & 搜索结果 begin -->
-      <div class="m-content">
+      <div class="hotel-pick">
 
+        <form action="####">
+          <div class="hotel-name">
+            <div class="search-icon"></div>
+            <div class="search-input">
+              <input type="text" placeholder="酒店名称、商圈、品牌">
+            </div>
+          </div>
+
+          <div class="date-pick">
+            <div class="date">
+              <p>住
+                <span>6-18</span>
+              </p>
+              <p>离
+                <span>6-18</span>
+              </p>
+            </div>
+            <span class="down"></span>
+          </div>
+
+        </form>
       </div>
-      <!-- 排序 & 搜索结果 end -->
+
     </div>
-  </body>
+    <!-- 搜索框 end -->
+
+    <!-- 排序 & 搜索结果 begin -->
+    <div class="m-content">
+      <div class="c-sort">
+        <ul>
+          <li class="order"><a href="#">推荐排序</a>
+          </li>
+          <li class="level"><a href="#">价格/星级</a>
+          </li>
+          <li class="filter"><a href="#">综合筛选</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="content-lists">
+        <ul class="list">
+
+          <li>
+            <img src="./imgs/default.png" alt="hotel">
+            <div class="details">
+              <p class="details-name">北京艺术大师酒店</p>
+              <p class="stars">零星酒店
+                <span>0.0分/12评论</span>
+              </p>
+              <p class="group">团</p>
+              <p class="location">苏州街</p>
+              <p class="price">
+                <span class="rmb">&yen;</span>200
+                <span class="money-start">起</span>
+              </p>
+            </div>
+            <div class="lookfor">&gt;</div>
+          </li>
+          <li>
+            <img src="./imgs/default.png" alt="hotel">
+            <div class="details">
+              <p class="details-name">北京艺术大师酒店</p>
+              <p class="stars">零星酒店
+                <span>0.0分/12评论</span>
+              </p>
+              <p class="group">团</p>
+              <p class="location">苏州街</p>
+              <p class="price">
+                <span class="rmb">&yen;</span>200
+                <span class="money-start">起</span>
+              </p>
+            </div>
+            <div class="lookfor">&gt;</div>
+          </li>
+          <li>
+            <img src="./imgs/default.png" alt="hotel">
+            <div class="details">
+              <p class="details-name">北京艺术大师酒店</p>
+              <p class="stars">零星酒店
+                <span>0.0分/12评论</span>
+              </p>
+              <p class="group">团</p>
+              <p class="location">苏州街</p>
+              <p class="price">
+                <span class="rmb">&yen;</span>200
+                <span class="money-start">起</span>
+              </p>
+            </div>
+            <div class="lookfor">&gt;</div>
+          </li>
+          <li>
+            <img src="./imgs/default.png" alt="hotel">
+            <div class="details">
+              <p class="details-name">北京艺术大师酒店</p>
+              <p class="stars">零星酒店
+                <span>0.0分/12评论</span>
+              </p>
+              <p class="group">团</p>
+              <p class="location">苏州街</p>
+              <p class="price">
+                <span class="rmb">&yen;</span>200
+                <span class="money-start">起</span>
+              </p>
+            </div>
+            <div class="lookfor">&gt;</div>
+          </li>
+          <li>
+            <img src="./imgs/default.png" alt="hotel">
+            <div class="details">
+              <p class="details-name">北京艺术大师酒店</p>
+              <p class="stars">零星酒店
+                <span>0.0分/12评论</span>
+              </p>
+              <p class="group">团</p>
+              <p class="location">苏州街</p>
+              <p class="price">
+                <span class="rmb">&yen;</span>200
+                <span class="money-start">起</span>
+              </p>
+            </div>
+            <div class="lookfor">&gt;</div>
+          </li>
+          <li>
+            <img src="./imgs/default.png" alt="hotel">
+            <div class="details">
+              <p class="details-name">北京艺术大师酒店</p>
+              <p class="stars">零星酒店
+                <span>0.0分/12评论</span>
+              </p>
+              <p class="group">团</p>
+              <p class="location">苏州街</p>
+              <p class="price">
+                <span class="rmb">&yen;</span>200
+                <span class="money-start">起</span>
+              </p>
+            </div>
+            <div class="lookfor">&gt;</div>
+          </li>
+        </ul>
+      </div>
+
+
+
+
+
+
+
+    </div>
+    <!-- 排序 & 搜索结果 end -->
+  </div>
+</body>
 
 </html>
