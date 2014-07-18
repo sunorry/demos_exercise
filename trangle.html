@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .demo1, .demo2 {
+      height: 100px;
+      width: 100px;
+      background: #CCC;
+      margin-bottom: 20px;
+    }
+    .trangle {
+      height: 0;
+      width: 0;
+      border-width: 20px;
+      /*兼容 ie*/
+      border-style: solid dashed dashed dashed;
+      border-color: #000 transparent transparent transparent;
+    }
+
+    .arrow {
+      width: 20px;
+      height: 20px;
+      border-width: 20px;
+      -webkit-transform: rotate(45deg);
+      border-color: #000 green red blue;
+      border-style: solid;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="demo1">
+    <div class="trangle"></div>
+  </div>
+  <div class="demo2">
+    <div class="arrow"></div>
+  </div>
+</body>
+
+</html>
