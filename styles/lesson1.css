@@ -24,12 +24,12 @@ body {
 
 .back a {
   height: 42px;
+  line-height: 50px;
 }
 .back span {
   display: inline-block;
-  width: 42px;
-  height: 42px;
-  line-height: 42px;
+  width: 7px;
+  height: 7px;
   border-width: 5px;
   border-style: solid;
   border-color: transparent transparent red red;
