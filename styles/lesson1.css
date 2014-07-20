@@ -1,6 +1,14 @@
 body {
   background-color: #f7f7f7;
 }
+
+.trangle {
+  display: inline-block;
+  height: 0;
+  width: 0;
+  border-style: solid;
+
+}
 .g-wapper {
   width: 100%;
 }
@@ -25,6 +33,7 @@ body {
 .back a {
   height: 42px;
   line-height: 50px;
+  margin-left: 20%;
 }
 .back span {
   display: inline-block;
@@ -44,8 +53,10 @@ body {
   font-size: 15px;
   color: white;
 }
-.city img {
-  width: 16px;
+.city-trangle {
+  border-width: 6px;
+  border-color: white transparent transparent transparent;
+  vertical-align: middle;
 }
 .map {
   width: 25%;
@@ -70,7 +81,7 @@ body {
   float: left;
   background: white;
   margin-top: 2px;
-  margin-left: 5px;
+  margin-left: 2px;
 }
 .hotel-name .search-icon {
   float: left;
@@ -101,17 +112,16 @@ body {
 .date-pick .date {
   float: left;
   color: #25a4bb;
-  margin-left: 5px;
+  margin-left: 6px;
 }
 .date-pick p {
   line-height: 15px;
 }
 .date-pick .down {
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid #25a4bb;
+  border-width: 5px;
+  border-color: #25a4bb transparent transparent transparent;
   position: relative;
-  top: 20px;
+  top: 13px;
   left: 2px;
 }
 .m-content {
@@ -124,27 +134,27 @@ body {
 .c-sort ul {
   height: 100%;
   width: 93%;
-  margin-left: 20px;
-  text-align: left;
+  margin-left: 12px;
+  /*text-align: center;*/
 }
 .c-sort ul li {
   display: inline-block;
-  width: 32%;
   line-height: 37px;
-  padding-left: 20px;
+  padding-left: 18px;
+  margin-left: 14px;
   box-sizing: border-box;
 }
 .c-sort .order {
   background: url(../imgs/sort.png) no-repeat left;
-  background-size: 20px;
+  background-size: 16px 16px;
 }
 .c-sort .level {
   background: url(../imgs/money.png) no-repeat left;
-  background-size: 20px;
+  background-size: 16px 16px;
 }
 .c-sort .filter {
   background: url(../imgs/select.png) no-repeat left;
-  background-size: 20px;
+  background-size: 16px 16px;
 }
 .c-sort .order:after {
   content: '|';
