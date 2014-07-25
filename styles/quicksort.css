@@ -1,0 +1,14 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+#sort {
+  position: relative;
+  height: 700px;
+  padding-left: 10px;
+}
+#sort div {
+  position: absolute;
+  width: 20px;
+  bottom: 0;
+}
