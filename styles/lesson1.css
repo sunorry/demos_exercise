@@ -10,6 +10,8 @@ body {
 }
 .g-wapper {
   width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 .g-wapper .m-search {
   background-color: #25a4bb;
@@ -242,6 +244,22 @@ body {
   border-color: #ccc #ccc transparent transparent;
   -webkit-transform: rotate(45deg);
 }
+.area-cate span {
+  float: right;
+  margin-top: 10px;
+  width: 5px;
+  height: 5px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #ccc transparent transparent #ccc;
+
+}
+.arrow-up {
+  -webkit-transform: rotate(45deg);
+}
+.arrow-down {
+  -webkit-transform: rotate(-135deg);
+}
 .details-name {
   font-size: 18px;
   line-height: 22px;
@@ -266,7 +284,7 @@ body {
 .goTop span {
   border-width: 7px;
   border-color: transparent transparent #000;
-  margin-left: 5px;
+  margin-bottom: 3px;
 }
 
 .category {
@@ -384,6 +402,9 @@ body {
   font-size: 14px;
   line-height: 27px;
 }
+.com-list {
+  display: none;
+}
 .tab-active {
   color: #10dae2;
   border-color: #10dae2;
@@ -413,7 +434,7 @@ body {
   border-right:  1px solid #ccc;
 }
 .hotel-detail {
-  display: table-cell;
+  display: none;
   padding-left: 10px;
 }
 
@@ -439,12 +460,88 @@ body {
   height: 40px;
   line-height: 40px;
   background: #bababa;
-  cursor: pointer;
 }
 .selbtn span {
-  width: 50%;
+  width: 49%;
   text-align: center;
   display: inline-block;
   color: #fff;
   font-size: 20px;
+  cursor: pointer;
+}
+
+.sort-format {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+}
+
+.sort-cat li{
+  text-align: center;
+  height: 36px;
+  line-height: 36px;
+  font-weight: bold;
+  color: #000;
+  font-size: 18px;
+}
+
+.mask {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #000;
+  opacity: .4;
+}
+
+.city-detail, .search-detail, .hotel-filter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  right: -100%;
+  top: 0;
+  background: white;
+}
+
+#clear-history {
+  text-align: center;
+  color: #25a4bb;
+  font-size: 14px;
+  line-height: 27px;
+  margin-top: 2px;
+}
+
+.index-list .index-list-active {
+  background: white;
+  border-right: none;
+}
+.area-cate li:after {
+  border:
+}
+.price-format {
+  display: none;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background: white;
+}
+.price-choose div {
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+.price-choose dt, .price-choose dd {
+  line-height: 30px;
+  font-size: 18px;
+  height: 30px;
+}
+.price-choose dt {
+  margin-top: 10px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+
 }

@@ -1,4 +1,4 @@
-var arr = [63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+var arr = [42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
 
 
 //将数组中的数据以 div 的形式添加到父容器中
@@ -17,7 +17,7 @@ function init(parent, arr) {
   }
 }
 
-
+// 排序，记录排序时 换的位置
 var sortOrder = [];
 
 function bubbleSort(arr) {
@@ -36,8 +36,8 @@ function bubbleSort(arr) {
   return arr;
 }
 
+//换柱子使用div的class换，所以每次移动后也将class交换
 var step = 0;
-
 function move() {
   var len = sortOrder.length - 1;
   if (step > len) return;
@@ -49,14 +49,12 @@ function move() {
 
   $.when(x.animate({
     left: 10 + 30 * b
-  }, 50, function() {
+  }, 300, function() {
     x.attr('class', b);
-    console.log(x.attr('class'));
   }), y.animate({
     left: 10 + 30 * a
-  }, 50, function() {
+  }, 300, function() {
     y.attr('class', a);
-    console.log(y.attr('class'));
   })).done(function() {
     ++step;
     move();
@@ -72,8 +70,7 @@ $(function() {
   move();
 });
 
-
-
+//随机颜色
 function randomColor() {
   var value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
   return '#' + value[Math.floor(Math.random() * 14)] + value[Math.floor(Math.random() * 14)] + value[Math.floor(Math.random() * 14)] + value[Math.floor(Math.random() * 14)] + value[Math.floor(Math.random() * 14)] + value[Math.floor(Math.random() * 14)];
