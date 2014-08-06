@@ -1,4 +1,4 @@
-define(['jquery'], function($) {
+define(['jquery','jqueryUI'], function($,$UI) {
   function Window() {
     this.cfg = {
       width: 500,
@@ -8,11 +8,28 @@ define(['jquery'], function($) {
       handler: null,
       text4AlertBtn : 'sunorry',
       hasCloseBtn: false,
-      hasMask: true
+      hasMask: true,
+      isDraggable: true,
+      dragHandle: null
     };
+    this.handlers = {};
   }
 
   Window.prototype = {
+    on: function(type, handler){
+      if(typeof this.handlers[type] == 'undedined') {
+        this.handlers[type] = [];
+      }
+      this.handlers[type].push(handler);
+    },
+    fire: function(type, data) {
+      if(this.handlers[type] instanceif Array) {
+        var handlers = this.handlers[type];
+        for(var i=0,len=handlers.length; i<len; i++) {
+          hanlders[i](data);
+        }
+      }
+    },
     alert: function(cfg) {
       var CFG = $.extend(this.cfg, cfg);
       var boundingBox = $('<div class="window_boundingBox"><div class="window_header">'+
@@ -24,6 +41,7 @@ define(['jquery'], function($) {
 
       var btn = boundingBox.find('.window_footer input');
       mask = null;
+      that = this;
       if(CFG.hasMask) {
         mask = $('<div class="window_mask"></div>');
         mask.appendTo('body');
@@ -32,6 +50,7 @@ define(['jquery'], function($) {
         CFG.handler && CFG.handler(); //有此参数，就执行
         boundingBox.remove();
         mask && mask.remove();
+        that.fire('alert');
       });
       boundingBox.css({
         width: CFG.width + 'px',
@@ -45,7 +64,15 @@ define(['jquery'], function($) {
         closeBtn.click(function() {
           boundingBox.remove();
           mask && mask.remove();
+          that.fire('close');
         })
+      }
+      if(CFG.isDraggable) {
+        if(CFG.dragHandle) {
+          boundingBox.draggable({handle: CFG.dragHandle})
+        } else {
+          boundingBox.draggable();
+        }
       }
     },
     confirm: function() {},

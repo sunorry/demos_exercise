@@ -255,7 +255,11 @@ $(function() {
 
     $('#hotel-input').keyup(throttle(suggest,500));
 
-
+    // 国内城市乱七八糟
+    $('.area-cate').click(function() {
+      $(this).siblings('dd').next().slideUp('fast').find('span').attr('class','arrow-up');
+      $(this).next().slideToggle('fast').end().find('span').toggleClass('class','arrow-down');
+    });
 
 
 

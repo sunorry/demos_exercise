@@ -252,6 +252,7 @@ body {
   border-width: 3px;
   border-style: solid;
   border-color: #ccc transparent transparent #ccc;
+  /*-webkit-transform: rotate(45deg);*/
 
 }
 .arrow-up {
@@ -376,9 +377,6 @@ body {
 .tab-title {
   display: flex;
 }
-
-
-
 .tab-title div{
   display: inline-block;
   font-size: 16px;
@@ -396,15 +394,22 @@ body {
   margin-top: 5px;
   border-right: 1px solid #ddd;
 }
-.com-list li, .history-list li{
-  border-bottom: 1px solid #ddd;
+.com-list dd, .history-list dd{
   height: 27px;
   padding: 5px 10px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 27px;
+  background-color: #fff;
+  border-bottom: 1px solid #cacaca;
+  overflow: hidden;
 }
-.history-list {
+.com-list {
   display: none;
+}
+.his-detail span{
+  display: inline-block;
+  width: 5px;
+  height: 5px;
 }
 .tab-active {
   color: #10dae2;
@@ -440,7 +445,7 @@ body {
   padding-left: 10px;
 }
 
-.city-detail p{
+.city-detail dt{
   font-size: 14px;
   line-height: 20px;
   color: #999;
@@ -566,4 +571,8 @@ body {
   white-space: nowrap;
   padding-left: 10px;
   border-bottom: 1px solid #ccc;
+}
+
+.history-list ul {
+  display: none;
 }

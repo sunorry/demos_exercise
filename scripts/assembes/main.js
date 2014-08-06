@@ -1,6 +1,7 @@
 require.config({
   paths: {
-    jquery: 'jquery.1.8.3.min'
+    jquery: 'jquery.1.8.3.min',
+    jqueryUI: 'http://code.jquery.com/ui/1.10.4/jquery-ui'
   }
 });
 require(['jquery','window'], function($,w) {
@@ -15,6 +16,7 @@ require(['jquery','window'], function($,w) {
       height: 150,
       y: 50,
       text4AlertBtn: 'OK',
+      dragHandle: '.window_header',
       hasCloseBtn: true
     });
   });

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>handlebars</title>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>a</th>
+        <th>b</th>
+        <th>c</th>
+      </tr>
+      <tbody id="tableList"></tbody>
+    </thead>
+  </table>
+
+  <script src="./scripts/jquery.1.8.3.min.js"></script>
+  <script src="./scripts/handlebars-v1.3.0.js"></script>
+  <script id="table-template" type="text/x-handlebars-template">
+    {{#each student}}
+      <tr>
+        <td>{{name}}</td>
+        <td>{{sex}}</td>
+        <td>{{age}}</td>
+      </tr>
+    {{/each}}
+  </script>
+  <script>
+    $(function() {
+      var data = {
+        "student": [
+          {
+            "name": "a",
+            "sex": "b",
+            "age": "c"
+          },
+          {
+            "name": "a",
+            "sex": "b",
+            "age": "c"
+          },
+          {
+            "name": "a",
+            "sex": "b",
+            "age": "c"
+          }
+        ]
+      }
+      var myTemplate = Handlebars.compile($("#table-template").html());
+      $("#tableList").html(myTemplate(data));
+    });
+  </script>
+</body>
+</html>
