@@ -1,4 +1,5 @@
 define(['jquery','jqueryUI'], function($,$UI) {
+
   function Window() {
     this.cfg = {
       width: 500,

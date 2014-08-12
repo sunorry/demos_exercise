@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>calendar</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  #div1 {
+    display: none;
+    margin: 20px;
+    position: absolute;
+    top: 25px;
+    left: 10px;
+  }
+  #nowTime {
+    width: 330px;
+    float: left;
+  }
+  #nextTime {
+    width: 330px;
+    float: left;
+    margin: 0 0 0 10px;
+  }
+  .title {
+    width: 100%;
+    height: 30px;
+    background: #17a4eb;
+    color: #FFF;
+    position: relative;
+  }
+  .title .c {
+    text-align: center;
+    line-height: 30px;
+  }
+  .title .l {
+    position: absolute;
+    top: 6px;
+    left: 5px;
+  }
+  .title .r {
+    position: absolute;
+    top: 6px;
+    right: 5px;
+  }
+  table {
+    width: 100%;
+    background: #dee3e9;
+    color: #9ea7ac;
+  }
+  table tr {
+    background: #f9fafc;
+  }
+  table th {
+    width: 46px;
+    padding: 5px;
+  }
+  table td {
+    padding: 5px;
+    text-align: center;
+  }
+  .red {
+    color: #f00;
+  }
+  .blue {
+    color: #00f;
+  }
+  </style>
+  <script>
+  window.onload = function() {
+    var aInput = document.getElementsByTagName('input');
+    var oDiv = document.getElementById('div1');
+    var oNowTime = document.getElementById('nowTime');
+    var oNextTime = document.getElementById('nextTime');
+    var aTd = oDiv.getElementsByTagName('td');
+    var aNowSpan = oNowTime.getElementsByTagName('span');
+    var aNextSpan = oNextTime.getElementsByTagName('span');
+    var flag = false;
+    aInput[2].onclick = function() {
+      var oDate = new Date();
+      if (!flag) {
+        oDiv.style.display = 'block';
+        if (oDate.getMonth() + 1 == 12) {
+          showDate(oNowTime, oDate.getFullYear(), oDate.getMonth() + 1, true);
+          showDate(oNextTime, oDate.getFullYear() + 1, 1);
+        } else {
+          showDate(oNowTime, oDate.getFullYear(), oDate.getMonth() + 1, true);
+          showDate(oNextTime, oDate.getFullYear(), oDate.getMonth() + 2);
+        }
+        // showColor(oDate.getDate());
+      } else {
+        oDiv.style.display = 'none';
+      }
+      flag = !flag;
+    };
+
+    function getMonthDays(year, month) {
+      var date = new Date(year, month, 0);
+      return date.getDate();
+    }
+
+    function showDate(obj, year, month, bBtn) {
+      var oDate = new Date();
+      var dayNum = getMonthDays(year, month);
+      if (!obj.bBtn) {
+        obj.oTitle = document.createElement('div');
+        obj.oTitle.className = 'title';
+        obj.appendChild(obj.oTitle);
+        var oTable = document.createElement('table');
+        var oThead = document.createElement('thead');
+        var oTr = document.createElement('tr');
+        var arr = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
+
+        //添加星期行
+        for (var i = 0; i < 7; i++) {
+          var oTh = document.createElement('th');
+          oTh.innerHTML = arr[i];
+          if (i == 5 || i == 6) {
+            oTh.className = 'red';
+          }
+          oTr.appendChild(oTh);
+        }
+        oThead.appendChild(oTr);
+        oTable.appendChild(oThead);
+
+        //添加装载日期的 td
+        var oTbody = document.createElement('tbody');
+        for (var i = 0; i < 6; i++) {
+          var oTr = document.createElement('tr');
+          for (var j = 0; j < 7; j++) {
+            var oTd = document.createElement('td');
+            oTr.appendChild(oTd);
+          }
+          oTbody.appendChild(oTr);
+        }
+        oTable.appendChild(oTbody);
+        obj.appendChild(oTable);
+
+        obj.bBtn = true;
+      }
+
+      // 第四个参数，如果有，说明是第一个日历，就能判断上个月还是下个月了
+      obj.oTitle.innerHTML = (bBtn ? '<div class="l"><span>' + (month - 1) + '</span>月</div>' : '<div class="r"><span>' + (month + 1) + '</span>月</div>') + '<div class="c"><span>' + year + '</span>年<span>' + month + '</span>月</div>';
+
+      var aTd = obj.getElementsByTagName('td');
+      for (var i = 0; i < aTd.length; i++) {
+        aTd[i].innerHTML = '';
+      }
+
+      //判断第一天是星期几，然后遍历，终止于上面的天数
+      oDate.setFullYear(year);
+      oDate.setMonth(month - 1);
+      oDate.setDate(1);
+      switch (oDate.getDay()) {
+        case 0:
+          for (var i = 0; i < dayNum; i++) {
+            aTd[i + 6].innerHTML = i + 1;
+          }
+          break;
+        case 1:
+          for (var i = 0; i < dayNum; i++) {
+            aTd[i].innerHTML = i + 1;
+          }
+          break;
+        case 2:
+          for (var i = 0; i < dayNum; i++) {
+            aTd[i + 1].innerHTML = i + 1;
+          }
+          break;
+        case 3:
+          for (var i = 0; i < dayNum; i++) {
+            aTd[i + 2].innerHTML = i + 1;
+          }
+          break;
+        case 4:
+          for (var i = 0; i < dayNum; i++) {
+            aTd[i + 3].innerHTML = i + 1;
+          }
+          break;
+        case 5:
+          for (var i = 0; i < dayNum; i++) {
+            aTd[i + 4].innerHTML = i + 1;
+          }
+          break;
+        case 6:
+          for (var i = 0; i < dayNum; i++) {
+            aTd[i + 5].innerHTML = i + 1;
+          }
+          break;
+      }
+
+
+    }
+
+
+
+    // if(aNowSpan[0].innerHTML) {
+    //   var prevMonth = parseInt(aNowSpan[0].innerHTML, 10);
+    //   var nextMonth = parseInt(aNextSpan[0].innerHTML, 10);
+
+    //   prevMonth.parentNode.onclick = function() {
+    //     showDate(oNowTime, oDate.getFullYear(), oDate.getMonth() , true);
+    //     console.log('1')
+    //   };
+    // }
+    // function anotherMonth() {
+      // var prevMonth = parseInt(aNowSpan[0].innerHTML, 10);
+      // var nextMonth = parseInt(aNextSpan[0].innerHTML, 10);
+
+      // prevMonth.parentNode.onclick = function() {
+      //   showDate(oNowTime, oDate.getFullYear(), oDate.getMonth() , true);
+      //   console.log('1')
+      // };
+        // anotherMonth();
+
+    // }
+
+  }
+  </script>
+</head>
+
+<body>
+  <input type="text">
+  <input type="text">
+  <input type="button" value="OK">
+
+  <div id="div1">
+    <div id="nowTime">
+      <!--   <div class="title">
+        <div class="l"><span>6</span>月</div>
+        <div class="c"><span>2000</span>年<span>3</span>月</div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>周1</th>
+            <th>周2</th>
+            <th>周3</th>
+            <th>周4</th>
+            <th>周5</th>
+            <th class="red">周6</th>
+            <th class="red">周7</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1
+              <p>1000元</p>
+            </td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+          </tr>
+        </tbody>
+      </table> -->
+    </div>
+
+    <div id="nextTime">
+      <!--   <div class="title">
+        <div class="r"><span>3</span>月</div>
+        <div class="c"><span>2000</span>年<span>3</span>月</div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>周1</th>
+            <th>周2</th>
+            <th>周3</th>
+            <th>周4</th>
+            <th>周5</th>
+            <th class="red">周6</th>
+            <th class="red">周7</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+          </tr>
+        </tbody>
+      </table> -->
+    </div>
+
+  </div>
+</body>
+
+</html>
