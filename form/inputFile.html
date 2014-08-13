@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>input[file]</title>
+	<style>
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	.wrap{
+		margin: 50px;
+	}
+	.inputFile{
+		width: 100px;
+		height: 24px;
+		line-height: 24px;
+		border: 1px solid #ccc;
+		float: left;
+		overflow: hidden;
+	}
+	.uploadBtn{
+		float: left;
+		height: 24px;
+		line-height: 24px;
+		width: 40px;
+		text-align: center;
+		border: 1px solid #f60;
+		border-radius: 5px;
+		margin-left: 5px;
+		cursor: pointer;
+	}
+	</style>
+	<script src="jquery.js"></script>
+	<script>
+		$(function(){
+			var span = $('.uploadBtn');
+			span.click(function(){
+				$('#a').click();
+				// var val = $('#a').val();
+				// alert(val)
+			});
+
+			$('#a').change(function(){
+				var val = $(this).val();
+				$('.inputFile').text(val);
+			});
+		});
+		
+	</script>
+</head>
+<body>
+	<input type="file" name="a" id="a" style="display:none">
+	
+	<div class="wrap">
+		<div class="inputFile"></div><span class="uploadBtn">上传</span>
+	</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>select</title>
+	<style>
+		/*select{
+			width: 200px;
+			height: 100px;
+			color: #f00;
+			background: #abcdef url(images/select.jpg) right center no-repeat;
+		}
+		select option{
+			width: 200px;
+			height: 100px;
+			color: #f00;
+			background: teal;
+		}*/
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.wrap{}
+
+		.select{
+			width: 200px;
+			height: 32px;
+			line-height: 32px;
+			border: 1px solid #ccc;
+			background: url(images/select.jpg) right center no-repeat;
+			position: relative;
+		}
+		ul{
+			width: 200px;
+			border: 1px solid #ccc;
+			border-top: none;
+			display: none;
+			position: absolute;
+			left: 0;
+			top: 32;
+		}
+		ul li{
+			height: 32px;
+			line-height: 32px;
+		}
+		ul li:hover{
+			background: #ccc;
+		}
+	</style>
+	<script src="jquery.js"></script>
+	<script>
+	$(function(){
+		var selectBtn = $('.select');
+		var li = $('ul li');
+		selectBtn.click(function(){
+			$('ul').slideToggle();
+		});
+
+		li.click(function(){
+			var val = $(this).attr('val');
+			var oText = $(this).text();
+			selectBtn.text(oText);
+			$('#a').val(val);
+			$('ul').slideUp(10);
+		});
+	});
+	</script>
+</head>
+<body>
+	<!-- <select name="a" id="">
+		<option value="">男</option>
+		<option value="">女</option>
+		<option value="">保密</option>
+	</select> -->
+
+	<div class="wrap">
+		<div class="select"></div>
+		<ul>
+			<li val="boy">男</li>
+			<li val="girl">女</li>
+			<li val="secret">保密</li>
+		</ul>
+		<input type="hidden" name="a" value="" id="a">
+	</div>
+</body>
+</html>
