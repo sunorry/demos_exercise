@@ -1,0 +1,59 @@
+ #div1 {
+      /*display: none;*/
+      margin: 20px;
+      position: absolute;
+      top: 25px;
+      left: 10px;
+    }
+    #nowTime {
+      width: 330px;
+      float: left;
+    }
+    #nextTime {
+      width: 330px;
+      float: left;
+      margin: 0 0 0 10px;
+    }
+    .title {
+      width: 100%;
+      height: 30px;
+      background: #17a4eb;
+      color: #FFF;
+      position: relative;
+    }
+    .title .c {
+      text-align: center;
+      line-height: 30px;
+    }
+    .title .l {
+      position: absolute;
+      top: 6px;
+      left: 5px;
+    }
+    .title .r {
+      position: absolute;
+      top: 6px;
+      right: 5px;
+    }
+    table {
+      width: 100%;
+      background: #dee3e9;
+      color: #9ea7ac;
+    }
+    table tr {
+      background: #f9fafc;
+    }
+    table th {
+      width: 46px;
+      padding: 5px;
+    }
+    table td {
+      padding: 5px;
+      text-align: center;
+    }
+    .red {
+      color: #f00;
+    }
+    .blue {
+      color: #00f;
+    }
