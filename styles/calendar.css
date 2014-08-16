@@ -1,25 +1,12 @@
- #div1 {
-   /*display: none;*/
-   margin: 20px;
-   position: absolute;
-   top: 25px;
-   left: 10px;
- }
- #nowTime {
-   width: 330px;
-   float: left;
- }
- #nextTime {
-   width: 330px;
-   float: left;
-   margin: 0 0 0 10px;
+ #nowTime, #nextTime {
+   width: 100%;
+   position: relative;
  }
  .title {
    width: 100%;
    height: 30px;
-   background: #17a4eb;
-   color: #FFF;
-   position: relative;
+   background: #fff;
+   color: #000;
  }
  .title .c {
    text-align: center;

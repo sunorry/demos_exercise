@@ -1,13 +1,19 @@
 require.config({
-  baseUrl : './scripts/calendar',
   paths: {
-    jquery: 'libs/jquery.1.8.3.min'
+    jquery: 'jquery.1.8.3.min',
+    mockjax:'jquery.mockjax',
+    lesson: 'lesson1'
+  },
+  shim: {
+    'mockjax': {
+      deps: ['jquery']
+    }
   }
 });
 
-require(['jquery','calendar'], function($,c) {
+require(['jquery', 'mockjax', 'lesson', 'calendar'], function($,mo,l,c) {
   var oDate = new Date();
-  $('#a').click(function() {
+
     new c.Calendar().showDate({
       obj: $('#nowTime'),
       year: oDate.getFullYear(),
@@ -19,6 +25,6 @@ require(['jquery','calendar'], function($,c) {
       month: oDate.getMonth()+2,
       bBtn: false
     });
-  });
+
 });
 

@@ -10,6 +10,7 @@
   <meta name="keywords" content="">
   <link href="./styles/reset.css" rel="stylesheet">
   <link href="./styles/lesson1.css" rel="stylesheet">
+  <link href="./styles/calendar.css" rel="stylesheet">
 </head>
 
 <body>
@@ -47,7 +48,7 @@
             </div>
           </div>
 
-          <div class="date-pick">
+          <div class="date-pick" id="date-pick">
             <div class="date">
               <p>住
                 <span>6-18</span>
@@ -584,16 +585,18 @@
         <div class="hot-com tab-active">热门推荐</div>
       </div>
       <div class="com-list">
-        <ul>
-          <li>1</li>
-          <li>2</li>
-        </ul>
+        <dl>
+          <dt></dt>
+          <dd>1</dd>
+          <dd>1</dd>
+        </dl>
       </div>
       <div class="history-list">
-        <ul>
-          <li>历史1</li>
-          <li>历史2</li>
-        </ul>
+        <dl>
+          <dt></dt>
+          <dd>历史1</dd>
+          <dd>历史2</dd>
+        </dl>
         <p href="javascript:;" id="clear-history">清楚搜索历史</p>
       </div>
     </div>
@@ -623,11 +626,43 @@
       </div>
     </div>
     <!-- 点击价格/星级 end -->
+
+    <!-- calendar begin -->
+    <div class="calendar-detail" id="calendar-detail">
+      <div class="m-search">
+
+        <div class="city-pick">
+          <div class="back">
+            <a href="javascript:;" id="calendar-back">
+              <span></span>
+            </a>
+          </div>
+
+          <div class="city">
+            <span class="city-name">date-pick</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="tab-title">
+        <div class="h-come">选择入住日期
+          <p>08-16 </p>
+        </div>
+        <div class="vertical-line"></div>
+        <div class="h-back">选择离店日期
+          <p>08-22 </p>
+        </div>
+      </div>
+      <div id="nowTime"></div>
+      <div id="nextTime"></div>
+    </div>
+    <!-- calendar end -->
   </div>
 
-  <script src="scripts/jquery.1.8.3.min.js"></script>
-  <script src="scripts/jquery.mockjax.js"></script>
-  <script src="scripts/lesson1.js"></script>
+
+  <script src="scripts/require.js" data-main="scripts/main"></script>
 </body>
 
 </html>

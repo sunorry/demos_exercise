@@ -383,14 +383,13 @@ body {
   line-height: 40px;
   text-align: center;
 }
-.search-history, .hot-com {
+.h-come, .h-back, .search-history, .hot-com {
   width: 48%;
   border-bottom: 1px solid #cacaca;
   flex: 1;
 }
 .vertical-line {
   width: 0px;
-  height: 30px;
   margin-top: 5px;
   border-right: 1px solid #ddd;
 }
@@ -403,7 +402,7 @@ body {
   border-bottom: 1px solid #cacaca;
   overflow: hidden;
 }
-.com-list {
+.history-list {
   display: none;
 }
 .his-detail span{
@@ -505,7 +504,7 @@ body {
   opacity: .4;
 }
 
-.city-detail, .search-detail, .hotel-filter {
+.city-detail, .search-detail, .hotel-filter, .calendar-detail {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -575,4 +574,13 @@ body {
 
 .history-list ul {
   display: none;
+}
+
+.h-come, .h-back {
+  color: #25a4bb;
+}
+.h-come p, .h-back p {
+  font-size: 14px;
+  line-height: 14px;
+  color: #8c8c8c;
 }
