@@ -79,7 +79,9 @@ define(['jquery'], function($) {
         var date = new Date();
         if(CFG.bBtn && $('.c span').get(0).innerHTML == date.getFullYear() && $('.c span').get(1).innerHTML == date.getMonth()+1) {
           if(i-tmp+1 == CFG.day) {
-            td[i].className = 'red';
+            // console.log(td[i])
+            // td[i].className = 'red';
+            td[i].innerHTML = '<p>today</p><span id="comeDay">come</span>'
           }
         }
       }
@@ -118,6 +120,9 @@ define(['jquery'], function($) {
       //     })
       //   })(this)
       // })
+    },
+    choose: function() {
+
     }
   }
 

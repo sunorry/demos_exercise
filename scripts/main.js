@@ -12,6 +12,8 @@ require.config({
 });
 
 require(['jquery', 'mockjax', 'lesson', 'calendar'], function($,mo,l,c) {
+   alert('日历组建制作失败，还想着能上月下月，花了大力气，结果现在自己被套进去了...');
+
   var oDate = new Date();
 
     new c.Calendar().showDate({
