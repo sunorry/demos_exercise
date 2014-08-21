@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+  <script src="../scripts/jquery.1.8.3.min.js"></script>
+  <script>
+  var obj = {
+    page: 2,
+    dweek: 'W1'
+  }
+    var url = "http://lp.flight.qunar.com/api/qdclowprice?callback=?";
+    $.getJSON(url, obj, function(data) {
+      console.log(data)
+    })
+  </script>
+</body>
+</html>

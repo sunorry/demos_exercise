@@ -1,84 +1,81 @@
-define(['jquery','jqueryUI'], function($,$UI) {
-
+define(['jquery', 'jqueryUI'], function($, $UI) {
   function Window() {
     this.cfg = {
       width: 500,
-      height:300,
-      title: '系统消息',
+      height: 300,
+      title: 'wangxing.sun',
       content: '',
-      handler: null,
-      text4AlertBtn : 'sunorry',
       hasCloseBtn: false,
-      hasMask: true,
+      hasMask : true,
+      text4AlertBtn: 'okey',
       isDraggable: true,
-      dragHandle: null
-    };
-    this.handlers = {};
+      dragHandle: null,
+      handler4AlertBtn: null,
+      handler4CloseBtn: null
+    }
   }
 
+
   Window.prototype = {
-    on: function(type, handler){
-      if(typeof this.handlers[type] == 'undedined') {
-        this.handlers[type] = [];
-      }
-      this.handlers[type].push(handler);
-    },
-    fire: function(type, data) {
-      if(this.handlers[type] instanceof Array) {
-        var handlers = this.handlers[type];
-        for(var i=0,len=handlers.length; i<len; i++) {
-          hanlders[i](data);
-        }
-      }
-    },
+    constructor : Window,
     alert: function(cfg) {
       var CFG = $.extend(this.cfg, cfg);
-      var boundingBox = $('<div class="window_boundingBox"><div class="window_header">'+
-          CFG.title + '</div> <div class="window_body">' +
-          CFG.content + '</div> <div class="window_footer"><input type="button" value=' + CFG.text4AlertBtn +' /></div>'
-        +'</div>');
-      boundingBox.appendTo('body');
+      var boundingBox = $('<div class="window_boundingBox">' +
+          '<div class="window_header">' + CFG.title + '</div>' +
+          '<div class="window_body">' + CFG.content + '</div>' +
+          '<div class="window_footer"><input class="window_alertBtn" type="button" value=' + CFG.text4AlertBtn + ' /></div>'
+        + '</div>');
+      boundingBox.appendTo("body");
 
+      btn =boundingBox.find('.window_alertBtn');
 
-      var btn = boundingBox.find('.window_footer input');
       mask = null;
-      that = this;
       if(CFG.hasMask) {
         mask = $('<div class="window_mask"></div>');
         mask.appendTo('body');
       }
+
       btn.click(function() {
-        CFG.handler && CFG.handler(); //有此参数，就执行
+        CFG.handler4AlertBtn && CFG.handler4AlertBtn();
         boundingBox.remove();
         mask && mask.remove();
-        that.fire('alert');
       });
+
       boundingBox.css({
-        width: CFG.width + 'px',
-        height: CFG.height + 'px',
-        left: (CFG.x || (window.innerWidth - CFG.width)/2) + 'px',
-        top: (CFG.y || (window.innerHeight - CFG.height)/2) + 'px'
+        width: this.cfg.width + 'px',
+        height: this.cfg.height + 'px',
+        left: (this.cfg.x || (window.innerWidth-this.cfg.width)/2) + 'px',
+        top: (this.cfg.y || (window.innerHeight-this.cfg.height)/2) + 'px'
       });
+
       if(CFG.hasCloseBtn) {
-        var closeBtn = $('<span class="window_closeBtn">X</span>');
+        var closeBtn = $('<span class="window_closeBtn">X</span>')
         closeBtn.appendTo(boundingBox);
         closeBtn.click(function() {
+          CFG.handler4CloseBtn && CFG.handler4CloseBtn();
           boundingBox.remove();
           mask && mask.remove();
-          that.fire('close');
-        })
+        });
       }
+
       if(CFG.isDraggable) {
-        if(CFG.dragHandle) {
-          boundingBox.draggable({handle: CFG.dragHandle})
-        } else {
-          boundingBox.draggable();
-        }
+        boundingBox.draggable({handle: CFG.dragHandle});
+      } else {
+        boundingBox.draggable();
       }
+
+
     },
-    confirm: function() {},
-    prompt: function() {}
+
+    confirm: function() {
+
+    },
+
+    prompt: function() {
+
+    }
   };
+
   return {
     Window: Window
   }

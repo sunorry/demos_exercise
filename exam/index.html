@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>【去哪儿网】机票查询,特价机票,打折飞机票-去哪儿网Qunar.com</title>
+  <link rel="stylesheet" href="./styles/reset.css">
+  <link rel="stylesheet" href="./styles/lplist.css">
+  <script id="tpl" type="text/x-handlebars-template">
+        <ul>
+          {{#each ticketInfo}}
+            <li>
+              <a calss="ticket_wrap" href="javascript:;">
+                <p class="ptop">
+                  {{weeks}}
+                </p>
+                <p class="p1">
+                  <span class="prc"><i class="rmb">¥</i>
+                    {{pr}}
+                  </span>&nbsp;
+                  <span class="dsc">
+                    {{dis}}折
+                  </span>
+                </p>
+                <p class="p2">
+                  <span>
+                    {{dc}}
+                  </span>&nbsp;-&nbsp;
+                  <span>
+                    {{ac}}
+                  </span>
+                </p>
+                <p class="p3">
+                  <span class="hl">立即抢票</span>
+                    {{month}}月{{day}}日&nbsp;
+                    {{dt}}
+                </p>
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+      </script>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="page">
+
+      <!-- search begin -->
+      <div class="search">
+        <div class="search_tab">
+          <ul>
+            <li><a href="javascript:;">国内机票</a>
+            </li>
+            <li><a href="javascript:;">国际·港澳台机票</a>
+            </li>
+            <li><a href="javascript:;">特价机票</a>
+            </li>
+          </ul>
+          <div>特价机票数量有限，合适航班尽快下单！</div>
+        </div>
+        <div class="search_body">
+          <div class="searrch_img"></div>
+        </div>
+      </div>
+      <!-- search end -->
+
+      <!-- search content begin -->
+      <div class="wrapbody">
+
+      <div id="filter_sort">
+        <div id="wrapbody_sel">
+          <div class="sel_col">
+            <span class="sel_lab">时间类型</span>
+            <span class="nl" data-key="W0" data-event="filterList" data-ftype="dWeek">不限</span>
+            <span class="ns" data-key="W2" data-event="filterList" data-ftype="dWeek">工作日</span>
+            <span class="ns" data-key="W1" data-event="filterList" data-ftype="dWeek">周末</span>
+            <span class="fr">更多筛选条件</span>
+          </div>
+          <div class="sel_col">
+            <span class="sel_lab">时间范围</span>
+            <span class="nl" data-key="T0" data-event="filterList" data-ftype="dtime">不限</span>
+            <span class="ns" data-key="T8" data-event="filterList" data-ftype="dtime">八月</span>
+          </div>
+          <div class="sel_col">
+            <span class="sel_lab">出发城市</span>
+            <span class="nl" data-key="" data-event="filterList" data-ftype="dcity">不限</span>
+            <span class="ns" data-key="" data-ftype="dcity">xxx</span>
+            <span class="ns" data-key="" data-ftype="dcity">xxx</span>
+            <span class="ns" data-key="" data-ftype="dcity">xxx</span>
+            <span class="ns" data-key="" data-ftype="dcity">xxx</span>
+            <span class="ns" data-key="" data-ftype="dcity">xxx</span>
+            <span class="ns" data-key="" data-ftype="dcity">xxx</span>
+            <span class="ns" data-key="" data-ftype="dcity">xxx</span>
+            <span class="ns" data-key="" data-ftype="dcity">xxx</span>
+            <span class="ns" data-key="" data-ftype="dcity">xxx</span>
+            <span class="ns" data-key="" data-ftype="dcity">xxx</span>
+            <span class="ns" data-key="" data-ftype="dcity">xxx</span>
+            <span class="fr ns">更多城市</span>
+          </div>
+          <div class="sel_time sel_col">
+            <span class="sel_lab">起飞时间</span>
+            <label for="">
+              <input type="checkbox" name="">morning</label>
+            <label for="">
+              <input type="checkbox" name="">noon</label>
+            <label for="">
+              <input type="checkbox" name="">after</label>
+            <label for="">
+              <input type="checkbox" name="">night</label>
+          </div>
+          <div class="sel_col">
+            <span class="sel_lab">价格区间</span>
+            <span class="nl">142-1233</span>
+          </div>
+        </div>
+
+        <div class="sort_type">
+          <ul>
+            <li class="cur">
+              <a href="javascript:;">
+                <span class="i_up" data-sort="asc" data-stype="S1" data-event="sortList">价格</span>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                <span class="i_up" data-stype="S2" data-event="sortList">折扣</span>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                <span class="i_up" data-stype="S3"  data-event="sortList">出发日期</span>
+              </a>
+            </li>
+          </ul>
+          <span class="fr">共
+            <em id="itemNum"></em> 条</span>
+        </div>
+      </div>
+
+        <div class="wrapcontent">
+          <ul id="ticketList">
+            <!-- <li>
+              <a href="">
+                <p class="ptop">周六</p>
+                <p class="p1">
+                  <span class="prc"><i class="rmb">¥</i>3483</span>&nbsp;
+                  <span class="dsc">9.4折</span>
+                </p>
+                <p class="p2">
+                  <span>北京</span>&nbsp;-&nbsp;
+                  <span>和田</span>
+                </p>
+                <p class="p3">
+                  <span class="hl">立即抢票</span>08月23日&nbsp;08:30</p>
+              </a>
+            </li> -->
+          </ul>
+        </div>
+
+      </div>
+      <!-- search content end -->
+
+    </div>
+  </div>
+  <script src="./scripts/libs/require.js" data-main="./scripts/main"></script>
+</body>
+
+</html>

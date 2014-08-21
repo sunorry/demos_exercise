@@ -4,20 +4,25 @@ require.config({
     jqueryUI: 'http://code.jquery.com/ui/1.10.4/jquery-ui'
   }
 });
-require(['jquery','window'], function($,w) {
+
+require(['jquery', 'window'], function($, w) {
+
   $('#a').click(function() {
     new w.Window().alert({
-      title: 'xxx',
+      title: 'ops',
       content: 'welcome!',
-      handler: function() {
-        alert('oooo');
-      },
       width: 300,
       height: 150,
       y: 50,
-      text4AlertBtn: 'OK',
+      hasCloseBtn: true,
       dragHandle: '.window_header',
-      hasCloseBtn: true
+      handler4AlertBtn: function() {
+        alert('you click OK button');
+      },
+      handler4CloseBtn: function() {
+        alert('you click the close button');
+      }
     });
-  });
-})
+  })
+
+});

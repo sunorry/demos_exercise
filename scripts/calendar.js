@@ -72,7 +72,7 @@ define(['jquery'], function($) {
       this.oDate.setMonth(CFG.month - 1);
       this.oDate.setDate(1);
 
-      var tmp = (this.oDate.getDay()+6)%7
+      var tmp = (this.oDate.getDay()+6)%7;
       for (var i = 0; i < dayNum; i++) {
         td[i + tmp].innerHTML = i + 1;
         td[i].className = '';
