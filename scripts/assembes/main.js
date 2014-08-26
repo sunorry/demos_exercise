@@ -1,14 +1,14 @@
 require.config({
   paths: {
     jquery: 'jquery.1.8.3.min',
-    jqueryUI: 'http://code.jquery.com/ui/1.10.4/jquery-ui'
+    jqueryUI: 'jquery-ui.min'
   }
 });
 
 require(['jquery', 'window'], function($, w) {
-
   $('#a').click(function() {
-    new w.Window().alert({
+    var win = new w.Window();
+    win.alert({
       title: 'ops',
       content: 'welcome!',
       width: 300,
@@ -22,6 +22,24 @@ require(['jquery', 'window'], function($, w) {
       handler4CloseBtn: function() {
         alert('you click the close button');
       }
+    }).on('alert', function() {
+      alert('lian zhui yu fa');
+    });
+
+    win.on('alert', function() {
+      alert('2th alert handler');
+    });
+
+    win.on('alert', function() {
+      alert('3th alert handler');
+    });
+
+    win.on('close', function() {
+      alert('2th close handler');
+    });
+
+    win.on('x', function() {
+      alert('2th close handler@@@');
     });
   })
 
