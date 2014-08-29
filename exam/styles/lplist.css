@@ -87,11 +87,17 @@ html, body {
 .cur .i_down {
   background: url(../imgs/ico_tj.png) no-repeat 58px -90px;
 }
+.cur .S3.i_up {
+  background-position: 82px -70px;
+}
+.cur .S3.i_down {
+  background-position: 82px -90px;
+}
 .wrapcontent ul {
   overflow: hidden;
   zoom: 1;
   width: 110%;
-  min-height: 200px;
+  min-height: 400px;
 }
 .wrapcontent li {
   float: left;
@@ -154,5 +160,113 @@ html, body {
   color: #f60;
   padding-right: 18px;
   font-size: 12px;
-  visibility: hidden;
+  display: none;
+}
+
+.btn_morecity {
+  position: relative;
+  z-index: 2;
+  padding: 0 8px;
+}
+
+.active{
+  border: 1px solid #ABADB3;
+  border-bottom: 1px solid #fff;
+  background: #fff;
+}
+.more_city {
+  display: none;
+  position: absolute;
+  right: 20px;
+  z-index: 1;
+  width: 465px;
+  background-color: #fff;
+  font-size: 12px;
+  border: 1px solid #a7a9ae;
+  color: #000;
+  padding: 10px;
+}
+.more_city .city_title {
+  padding: 3px 0 5px;
+}
+.more_city .city_nav {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 3px;
+}
+.city_nav span {
+  /*position: relative;*/
+  bottom: -1px;
+  /*float: left;*/
+  display: inline;
+  margin-right: 8px;
+  padding: 0 8px;
+  height: 20px;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: #0069CA;
+}
+.city_nav .active {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-bottom: 4px solid #fff;
+  color: #333;
+}
+.more_city ul {
+  overflow: hidden;
+  margin-left: 10px;
+}
+.more_city li {
+  float: left;
+  width: 20%;
+  text-align: left;
+  height: 25px;
+  line-height: 25px;
+  overflow: hidden
+}
+.outer {
+  width: 300px;
+  height: 15px;
+  background: teal;
+  position: relative;
+}
+.inner {
+  width: 20px;
+  height: 15px;
+  cursor: pointer;
+  background: red;
+  position: absolute;
+  left: 280px;
+  top: 0;
+}
+
+.pagination {
+  padding: 10px;
+  line-height: 18px;
+  text-align: right;
+}
+.pagination a {
+  margin-right: 5px;
+}
+
+.pagination em {
+  display: inline-block;
+  margin-right: 5px;
+  padding: 0 4px;
+  font-weight: 700;
+  font-style: normal;
+  background-color: #0069ca;
+  color: #fff;
+}
+
+.goTo {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  background: url(../imgs/gotop.png) no-repeat;
+  cursor: pointer;
+  display: none;
+  bottom: 80px;
+  right: 168px;
 }

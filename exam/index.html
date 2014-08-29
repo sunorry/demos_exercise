@@ -8,46 +8,55 @@
   <title>【去哪儿网】机票查询,特价机票,打折飞机票-去哪儿网Qunar.com</title>
   <link rel="stylesheet" href="./styles/reset.css">
   <link rel="stylesheet" href="./styles/lplist.css">
-  <script id="tpl" type="text/x-handlebars-template">
-        <ul>
-          {{#each ticketInfo}}
-            <li>
-              <a calss="ticket_wrap" href="javascript:;">
-                <p class="ptop">
-                  {{weeks}}
-                </p>
-                <p class="p1">
-                  <span class="prc"><i class="rmb">¥</i>
-                    {{pr}}
-                  </span>&nbsp;
-                  <span class="dsc">
-                    {{dis}}折
-                  </span>
-                </p>
-                <p class="p2">
-                  <span>
-                    {{dc}}
-                  </span>&nbsp;-&nbsp;
-                  <span>
-                    {{ac}}
-                  </span>
-                </p>
-                <p class="p3">
-                  <span class="hl">立即抢票</span>
-                    {{month}}月{{day}}日&nbsp;
-                    {{dt}}
-                </p>
-              </a>
-            </li>
-          {{/each}}
-        </ul>
-      </script>
+  <script id="tpl_content" type="text/x-handlebars-template">
+      {{#each ticketInfo}}
+        <li>
+          <a calss="ticket_wrap" href="javascript:;">
+            <p class="ptop">
+              {{weeks}}
+            </p>
+            <p class="p1">
+              <span class="prc"><i class="rmb">¥</i>
+                {{pr}}
+              </span>&nbsp;
+              <span class="dsc">
+                {{dis}}折
+              </span>
+            </p>
+            <p class="p2">
+              <span>
+                {{dc}}
+              </span>&nbsp;-&nbsp;
+              <span>
+                {{ac}}
+              </span>
+            </p>
+            <p class="p3">
+              <span class="hl">立即抢票</span>
+                {{month}}月{{day}}日&nbsp;
+                {{dt}}
+            </p>
+          </a>
+        </li>
+      {{/each}}
+  </script>
+  <script id="tpl_morecity" type="text/x-handlebars-template">
+    <div data-title={{dataTitle}}>
+      <ul>
+        {{#each cityList}}
+          <li>
+          <span data-event="filterList" data-ftype="dcity" data-key={{key}}>{{value}}</span>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  </script>
 </head>
 
 <body>
+
   <div class="wrap">
     <div class="page">
-
       <!-- search begin -->
       <div class="search">
         <div class="search_tab">
@@ -70,100 +79,127 @@
       <!-- search content begin -->
       <div class="wrapbody">
 
-      <div id="filter_sort">
-        <div id="wrapbody_sel">
-          <div class="sel_col">
-            <span class="sel_lab">时间类型</span>
-            <span class="nl" data-key="W0" data-event="filterList" data-ftype="dWeek">不限</span>
-            <span class="ns" data-key="W2" data-event="filterList" data-ftype="dWeek">工作日</span>
-            <span class="ns" data-key="W1" data-event="filterList" data-ftype="dWeek">周末</span>
-            <span class="fr">更多筛选条件</span>
-          </div>
-          <div class="sel_col">
-            <span class="sel_lab">时间范围</span>
-            <span class="nl" data-key="T0" data-event="filterList" data-ftype="dtime">不限</span>
-            <span class="ns" data-key="T8" data-event="filterList" data-ftype="dtime">八月</span>
-          </div>
-          <div class="sel_col">
-            <span class="sel_lab">出发城市</span>
-            <span class="nl" data-key="" data-event="filterList" data-ftype="dcity">不限</span>
-            <span class="ns" data-key="" data-ftype="dcity">xxx</span>
-            <span class="ns" data-key="" data-ftype="dcity">xxx</span>
-            <span class="ns" data-key="" data-ftype="dcity">xxx</span>
-            <span class="ns" data-key="" data-ftype="dcity">xxx</span>
-            <span class="ns" data-key="" data-ftype="dcity">xxx</span>
-            <span class="ns" data-key="" data-ftype="dcity">xxx</span>
-            <span class="ns" data-key="" data-ftype="dcity">xxx</span>
-            <span class="ns" data-key="" data-ftype="dcity">xxx</span>
-            <span class="ns" data-key="" data-ftype="dcity">xxx</span>
-            <span class="ns" data-key="" data-ftype="dcity">xxx</span>
-            <span class="ns" data-key="" data-ftype="dcity">xxx</span>
-            <span class="fr ns">更多城市</span>
-          </div>
-          <div class="sel_time sel_col">
-            <span class="sel_lab">起飞时间</span>
-            <label for="">
-              <input type="checkbox" name="">morning</label>
-            <label for="">
-              <input type="checkbox" name="">noon</label>
-            <label for="">
-              <input type="checkbox" name="">after</label>
-            <label for="">
-              <input type="checkbox" name="">night</label>
-          </div>
-          <div class="sel_col">
-            <span class="sel_lab">价格区间</span>
-            <span class="nl">142-1233</span>
-          </div>
-        </div>
+        <div id="filter_sort">
+          <div id="wrapbody_sel">
+            <div class="sel_col">
+              <span class="sel_lab">时间类型</span>
+              <span>
+                <span class="nl" data-key="W0" data-event="filterList" data-ftype="dWeek">不限</span>
+                <span class="ns" data-key="W2" data-event="filterList" data-ftype="dWeek">工作日</span>
+                <span class="ns" data-key="W1" data-event="filterList" data-ftype="dWeek">周末</span>
+              </span>
+              <span class="fr">更多筛选条件</span>
+            </div>
+            <div class="sel_col">
+              <span class="sel_lab">时间范围</span>
+              <span>
+                <span class="nl" data-key="T0" data-event="filterList" data-ftype="dtime">不限</span>
+                <span class="ns" data-key="T8" data-event="filterList" data-ftype="dtime">八月</span>
+              </span>
+            </div>
+            <div class="sel_col">
+              <span class="sel_lab">出发城市</span>
+              <span>
+                <span class="nl" data-key="" data-event="filterList" data-ftype="dcity">不限</span>
+                <span class="ns" data-key="北京" data-event="filterList" data-ftype="dcity">北京</span>
+                <span class="ns" data-key="上海" data-event="filterList" data-ftype="dcity">上海</span>
+                <span class="ns" data-key="成都" data-event="filterList" data-ftype="dcity">成都</span>
+                <span class="ns" data-key="重庆" data-event="filterList" data-ftype="dcity">重庆</span>
+                <span class="ns" data-key="深圳" data-event="filterList" data-ftype="dcity">深圳</span>
+                <span class="ns" data-key="昆明" data-event="filterList" data-ftype="dcity">昆明</span>
+                <span class="ns" data-key="南京" data-event="filterList" data-ftype="dcity">南京</span>
+                <span class="ns" data-key="广州" data-event="filterList" data-ftype="dcity">广州</span>
+                <span class="ns" data-key="厦门" data-event="filterList" data-ftype="dcity">厦门</span>
+                <span class="ns" data-key="西安" data-event="filterList" data-ftype="dcity">西安</span>
+                <span class="ns" data-key="杭州" data-event="filterList" data-ftype="dcity">杭州</span>
+              </span>
+              <span class="fr ns btn_morecity">更多城市</span>
+              <div class="more_city">
+                <div class="city_title">
+                  <span>拼音
+                    <span class="c_py">A-G</span>城市</span>
+                </div>
+                <div class="city_nav">
+                  <span data-title="A-G" data-event="cityToggle" class="active">A-G</span>
+                  <span data-title="H-L" data-event="cityToggle" class="">H-L</span>
+                  <span data-title="M-T" data-event="cityToggle" class="">M-T</span>
+                  <span data-title="W-Z" data-event="cityToggle" class="">W-Z</span>
+                </div>
+                <div id="allCity"></div>
+              </div>
+            </div>
+            <div class="sel_time sel_col" id="check_time">
+              <span class="sel_lab">起飞时间</span>
+              <label for="D1">
+                <input id="D1" type="checkbox" value="D1" data-key="D1" data-event="filterList" data-ftype="dstep" name="">上午</label>
+              <label for="D2">
+                <input id="D2" type="checkbox" value="D2" data-key="D2" data-event="filterList" data-ftype="dstep" name="">中午</label>
+              <label for="D3">
+                <input id="D3" type="checkbox" value="D3" data-key="D3" data-event="filterList" data-ftype="dstep" name="">下午</label>
+              <label for="D4">
+                <input id="D4" type="checkbox" value="D4" data-key="D4" data-event="filterList" data-ftype="dstep" name="">晚上</label>
+            </div>
+            <div class="sel_col">
+              <span class="sel_lab">价格区间</span>
+              <span class="nl">¥
+                <span id="minp"></span>- ¥
+                <span id="maxp"></span>
+              </span>
 
-        <div class="sort_type">
-          <ul>
-            <li class="cur">
-              <a href="javascript:;">
-                <span class="i_up" data-sort="asc" data-stype="S1" data-event="sortList">价格</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:;">
-                <span class="i_up" data-stype="S2" data-event="sortList">折扣</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:;">
-                <span class="i_up" data-stype="S3"  data-event="sortList">出发日期</span>
-              </a>
-            </li>
-          </ul>
-          <span class="fr">共
-            <em id="itemNum"></em> 条</span>
+              <div class="outer">
+                <div class="inner"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sort_type">
+            <ul>
+              <li class="cur">
+                <a href="javascript:;">
+                  <span class="i_up" data-sort="asc" data-stype="S1" data-event="sortList">价格</span>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <span class="i_up" data-stype="S2" data-event="sortList">折扣</span>
+                </a>
+              </li>
+              <li>
+                <a href="javascript:;">
+                  <span class="i_up S3" data-stype="S3" data-event="sortList">出发日期</span>
+                </a>
+              </li>
+            </ul>
+            <span class="fr">共
+              <em id="itemNum"></em>条</span>
+          </div>
         </div>
-      </div>
 
         <div class="wrapcontent">
           <ul id="ticketList">
-            <!-- <li>
-              <a href="">
-                <p class="ptop">周六</p>
-                <p class="p1">
-                  <span class="prc"><i class="rmb">¥</i>3483</span>&nbsp;
-                  <span class="dsc">9.4折</span>
-                </p>
-                <p class="p2">
-                  <span>北京</span>&nbsp;-&nbsp;
-                  <span>和田</span>
-                </p>
-                <p class="p3">
-                  <span class="hl">立即抢票</span>08月23日&nbsp;08:30</p>
-              </a>
-            </li> -->
           </ul>
         </div>
 
+        <div class="pagination">
+          <a href="#" data-pager-link="first" id="firstPage" style="display: none;">第一页</a>
+          <a href="#" data-pager-link="prevPage" id="prevPage" style="display: none;">上一页</a>
+          <span id="pList"></span>
+          <a href="#" data-pager-link="next" id="nextPage" style="display:none">下一页</a>
+          <a href="#" data-pager-link="last" id="lastPage" style="display:none">最后一页</a>
+          <span class="ps" style="display:none"></span>
+        </div>
+        <div class="goTo"></div>
       </div>
       <!-- search content end -->
 
     </div>
+
+  </div>
+
+  <!-- 隐藏域，隐藏真实的最高最低价，每次点击的时候会变，拖动的时候不会变 -->
+  <div style="display:none">
+    <span id="priceMin"></span>
+    <span id="priceMax"></span>
   </div>
   <script src="./scripts/libs/require.js" data-main="./scripts/main"></script>
 </body>
